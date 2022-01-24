@@ -98,7 +98,7 @@ GOTO :EOF
 
 :RESTART_PHP_CGI
 TASKKILL /IM php-cgi.exe /f
-START /B php-cgi -b localhost:%PHP_CGI_PORT%
+Powershell.exe -executionpolicy remotesigned -File "%~dp0run-php-cgi.ps1"
 GOTO :EOF
 
 :RESTART_MYSQL
@@ -112,7 +112,7 @@ GOTO :EOF
 :START_ALL
 NET START mysql
 START nginx -p %NGINX_DIR%
-START /b php-cgi -b localhost:%PHP_CGI_PORT%
+Powershell.exe -executionpolicy remotesigned -File "%~dp0run-php-cgi.ps1"
 GOTO :EOF
 
 :STOP_ALL
