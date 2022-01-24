@@ -1,0 +1,1 @@
+Start-Process -FilePath php-cgi -ArgumentList "-b localhost:9000" -WindowStyle Hidden
